@@ -6,9 +6,9 @@ import { DB_CONNECTION_STRING } from '../constants';
 export async function connectToDatabase() {
   try {
     await mongoose.connect(DB_CONNECTION_STRING);
-    logger.info("Connect to database");
+    logger.info("Connected to database successfully");
   } catch (e) {
-    logger.error(e, "Failed to connect to database. Goodbye");
+    logger.error(e, "Failed to connect to database.");
     process.exit(1);
   }
 }
@@ -16,7 +16,7 @@ export async function connectToDatabase() {
 export async function disconnectFromDatabase() {
   await mongoose.connection.close();
 
-  logger.info("Disconnect from database");
+  logger.info("Disconnected from database successfully");
 
   return;
 }
