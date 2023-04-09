@@ -5,6 +5,7 @@ import { DB_CONNECTION_STRING } from '../constants';
 
 export async function connectToDatabase() {
   try {
+    mongoose.set('strictQuery', true);
     await mongoose.connect(DB_CONNECTION_STRING);
     logger.info("Connected to database successfully");
   } catch (e) {
